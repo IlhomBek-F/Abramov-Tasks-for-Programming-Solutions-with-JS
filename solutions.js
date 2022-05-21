@@ -267,3 +267,5 @@ function findAreaRing(){
 }
 
 findAreaRing()
+
+// 18. 
