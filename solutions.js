@@ -268,4 +268,4 @@ function findAreaRing(){
 
 findAreaRing()
 
-// 18. 
+// added test
