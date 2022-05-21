@@ -268,4 +268,55 @@ function findAreaRing(){
 
 findAreaRing()
 
-// Hello Senior
+// 18. A triangle is defined by the values of its angles and the radius of the circumscribed circle. Find the sides of the triangle.
+// a = 2R*sinA b = 2R*sinB c = 2R*sinC
+function findSidesOfTriangle() {
+  let R = 20;
+  let a = 21;
+  let b = 12;
+  let c = 9;
+  const A = 2 * R * Math.sin(a);
+  const B = 2 * R * Math.sin(b);
+  const C = 2 * R * Math.sin(c);
+
+  return `The side of triangle is: A ${A} B ${B} C ${C}`
+}
+
+findSidesOfTriangle()
+
+// 19. Determine the time after which two bodies will meet, moving equally towards each other, 
+// if their initial velocities, accelerations and the initial distance between them are known.
+// V = v1 + v2 
+// t = distance : V
+function findTimeMeeting() {
+  let v1 = 3 // m/h
+  let v2 = 3 // m/h
+  let d = 20 // miles
+  const V = v1 + v2
+
+  const T = d / V;
+
+  return `They will meet each other after ${T.toFixed(1)} h`
+ }
+
+findTimeMeeting()
+
+// 20. Find the sum of the terms of the arithmetic progression  
+// a , a + d, ... , a + (n - 1)d  according to the given values a, d, n
+
+function findSum() {
+    let arr = [1,2,3,4,5,6,7]
+
+    let arrs = []; 
+    let last = 1;
+    for(let i = 0; i < arr.length; i++){
+        let lastnum = arr.length - last++
+        let sumthem = arr[i] + lastnum;
+        arrs.push({first: arr[i], last: lastnum, result: sumthem, shoudBe: arr.length})
+    }
+   
+    return arrs
+}
+
+findSum()
+
