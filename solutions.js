@@ -315,8 +315,107 @@ function findSum() {
         arrs.push({first: arr[i], last: lastnum, result: sumthem, shoudBe: arr.length})
     }
    
+    
     return arrs
 }
 
 findSum()
+
+
+function sigma() {
+    let index = 0;
+    
+    let n = 10;
+    
+    let a = 1;
+  
+    let result = 0;
+    let d = 3;
+
+    while(index < n){
+        let sum =  a + index * d
+        result = result + sum
+        index++
+    }
+  
+   return result
+}
+  
+  sigma()
+
+  // 21. Given the real numbers c, d. Calculate  where x1  is the larger and x2 is the smaller roots of the equation x^2
+  // First of all ,  We need to find D (/_\) discriminant  D = b^ - 4ac
+  // D > 0 there are two root solutions  x1, x2 = -b +- root(D) / 2a
+  // D = 0 there only one solution  x = - (b / 2a) 
+  // D < 0 there is no root solutions 
+
+
+  function findDiscriminant() {
+    let x1, x2;
+    let c = 5;
+    let d = 4;
+
+    const D = Math.pow(3, 2) - 4 * Math.abs(c * d);
+
+    if(D < 0) return 'There is no root solution'
+
+    x1 = 9 + Math.sqrt(D) / 2;
+    x2 = 9 - Math.sqrt(D) / 2;
+   
+    const a = Math.abs(Math.pow( Math.sin(Math.abs(c * Math.pow( x1,3) + d * Math.pow(x2, 2) - c * d)),3)/ Math.sqrt(Math.pow(c * Math.pow(x1, 3) + d * x2 * x2 - x1, 2) + 3.14))
+    
+    return a + Math.tan(c * Math.pow(x1, 3) + d * Math.pow(x2, 2) - x1)
+  }
+
+
+  findDiscriminant()
+
+  // 22. Find the area of an isosceles trapezoid with bases a and B and an angle a with a larger base a
+  // A = (a + b / 2) * h ;
+
+  function findAreaTrapecia() {
+      let aBase, bBase, alpha, height,  area;
+      
+      aBase = 7;
+      bBase = 4;
+      alpha = 10;
+      height = 2 * ((Math.sin(alpha))) / ((Math.cos(alpha))) 
+      
+      return area = ((aBase + bBase) / 2) * height
+  }
+
+  findAreaTrapecia()
+
+// 23. The triangle is defined by the lengths of the sides. To find:
+// a) height lengths;
+// b) lengths of medians;
+// c) bisector lengths;
+// d) the R of the inscribed and circumscribed circles.
+
+function findTriangle() {
+    let a, b, c;
+    a = 8; 
+    b = 9;
+    c = 13;
+
+    const p = 1 / 2 * (a + b + c);
+
+    const height = (2 * Math.sqrt(p * (p - a) * (p - b) * (p - c))) / a
+    
+    const median = Math.sqrt((2 * Math.pow(a, 2) + 2 * Math.pow(b, 2) - Math.pow(c, 2)) / 4)
+  
+    const bisector = Math.sqrt(a * b * (a + b + c) * (a + b -c)) / a + b
+    
+    const poluperimetr = (a + b + c) / 2;
+     
+    // R = abc / 4 root(p) * (p - a) * (p - b) * (p - c)
+    const R = a * b * c / 4 * Math.sqrt(poluperimetr) * (poluperimetr - a) * (poluperimetr - b) * (poluperimetr - c)
+}
+
+findTriangle()
+
+// 24. Calculate the distance between two points with coordinates x1, y1 and x2, y2.
+
+
+
 
