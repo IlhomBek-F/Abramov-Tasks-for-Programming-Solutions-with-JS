@@ -415,7 +415,126 @@ function findTriangle() {
 findTriangle()
 
 // 24. Calculate the distance between two points with coordinates x1, y1 and x2, y2.
+// √(x2 — x1)2 + (y2 — y1)2
 
+function calculateDistanceCoordinates() {
+    let x1, x2, y1, y2;
+    x1 = 5;
+    x2 = 8;
+    y1 = 2;
+    y2 = 6;
 
+    return Math.sqrt(x2 - x1) * 2 + (y2 - y1) * 2
+}
 
+calculateDistanceCoordinates()
 
+// 25. A triangle is defined by the coordinates of its vertices . find : Perimetr and area of triangle 
+// s = ((x2 - x1)^2+(y2-y1)^2)^(1/2)
+function findPerimetrArea() {
+  let x1, x2, y2, y1, s;
+  x1 = 5;
+  x2 = 8;
+  y1 = 2;
+  y2 = 6;
+
+  return s = Math.sqrt((x2 - x1) * 2 + (y2 - y1), 1 / 2)
+}
+
+findPerimetrArea()
+
+// 26. Find the area of a sector whose radius is 13.7, and the arc contains a given number of radians.
+// S=r*r*φ/2
+function findAreaSector() {
+    const r = 13.7;
+    const radian = 57.2;
+    let s;
+    return s = r * r * radian / 2 
+}
+
+findAreaSector()
+
+// 27. The real positive numbers a, b, c are given. 
+//On three sides with lengths a, b, c, you can build a triangle. Find the angles of the triangle.
+// Use Law of Cosines / solving SSS Triangles  source: https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html
+// cos(A) = b^2 + c^2 − a^2 / 2bc , cos(B) = c^2 + a^2 − b^2 / 2ca , cos(C) = a^2 + b^2 − c^2 / 2ab
+function findAngleTriangle() {
+  let a,b,c;
+  a = 8;
+  b = 6;
+  c = 7;
+
+   const A = Math.acos((Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c))
+
+   const B = Math.acos((Math.pow(c, 2) + Math.pow(a, 2) - Math.pow(b, 2)) / (2 * c * a))
+
+   // convert to degree
+   
+   const degreeA = A * (180 / Math.PI)
+   const degreeB = B * (180 / Math.PI)
+   
+   const C = (180 - degreeA - degreeB).toFixed(1)
+   
+}
+
+findAngleTriangle();
+
+// 28. Given a real number x . 
+// Without using any other arithmetic operations other than multiplication, addition and subtraction, 
+// calculate 2x^4 - 3x^3 + 4x^2 - 5x + 6. It is allowed to use no more than four multiplications and four additions and subtractions.
+
+function calculateWithLimitOperators() {
+    let x = 8;
+    return 2 * Math.sqrt(x, 4) - 3 * Math.sqrt(x, 3) + 4 * Math.sqrt(x, 2) - 5 * x + 6;
+}
+
+calculateWithLimitOperators();
+
+// 29. The real numbers x, y are given . Without using any operations other than multiplication, addition and subtraction, calculate
+// 3х^2у^2 — 2ху^2 — 7х^2у — 4у^2 + 15ху + 2x^3 — Зх + 10y + 6;
+
+function calculateLimit() {
+     let x = 7;
+     let y = 3;
+     let powX = Math.pow(x, 2);
+     let powY = Math.pow(x, 2);
+
+     return 3 * powX * powY - 7 * powX * y - 4 * powY + 15 * x * y + 2 * Math.pow(x, 3) - 3 * x + 10 * y + 6
+}
+
+calculateLimit()
+
+// 30.The real numbers x is given . Without using any operations other than multiplication, addition and subtraction, calculate
+// 1 - 2x + 3x^2 - 4x^3 and 1 + 2x + 3x^2 + 4x^3
+
+function calculateBoth(){
+    let x = 4;
+    let powOfx = x * x;
+    let cubeX = x * x * x;
+     
+    let first = 1 - 2 * x + 3 * powOfx - 4 * cubeX;
+    let second = 1 + 2 * x + 3 * powOfx + 4 * cubeX;
+}
+
+calculateBoth()
+
+// 31. The real number a is given. Without using any other arithmetic operations other than multiplication, get:
+// a) a^4 for two operations; .
+// b) a^6 for three operations;
+// c) a^7 for four operations;
+// d) a^8 for three operations;
+
+function getWithLimitedOperations(){
+    let a = 4;
+    let resultA = 8 * (a * 8);
+    
+    let b = a
+    b = 16 * 16 * 16;
+    
+    let c = a;
+    c = b * a
+    
+    let d = c * a
+}
+
+getWithLimitedOperations();
