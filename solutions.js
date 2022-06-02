@@ -538,3 +538,13 @@ function getWithLimitedOperations(){
 }
 
 getWithLimitedOperations();
+
+Function.prototype.defer = function(ms) {
+    setTimeout(() => {
+        showMs()
+    }, ms)
+}
+
+function showMs(){
+    console.log('Hello')
+}
