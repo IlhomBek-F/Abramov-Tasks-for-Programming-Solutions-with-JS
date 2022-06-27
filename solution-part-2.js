@@ -120,11 +120,118 @@ halfSumOrMultiply();
 // 43. Three real numbers are given. Square those of them whose values are non-negative.
 
 function squareNumber() {
-     let numbers = [2,3,-12];
-      
-     return numbers = numbers.filter((number) => number > 0).map(num => num * num)
-    }
+  let numbers = [2, 3, -12];
+
+  return (numbers = numbers
+    .filter((number) => number > 0)
+    .map((num) => num * num));
+}
 
 squareNumber();
 
-// 44. 
+// 44. If the sum of three pairwise distinct real numbers x, y, z is less than one, then replace the smallest of
+// these three numbers with the half-sum of the other two; otherwise, replace the smaller of x and y with the half-sum
+// of the two remaining values.
+
+function replaceOther(x, y, z) {
+  if (x + y + z < 1) {
+    if (x < y && x < z) {
+      x = (y + z) / 2;
+    } else if (y < z && y < x) {
+      y = (x + z) / 2;
+    } else {
+      z = (y + x) / 2;
+    }
+  } else {
+    if (x < y) {
+      x = (y + z) / 2;
+    } else {
+      y = (x + z) / 2;
+    }
+  }
+}
+
+replaceOther(2, 3, 2);
+
+// 45. The real numbers a, b, c, d are given. If a =< b =< c =< d
+// then each number is replaced by the largest of
+// them; if a > b > c > d, then the numbers are left unchanged;
+// otherwise, all numbers are replaced by their squares.
+
+function replaceSquare() {
+  // [a,b,c,d]
+  let numbers = [1, -2, 3, 4];
+  let isMore = 1;
+  let isMoreOrUequal = 1;
+  let isMoreOrlessOrEqual = false;
+  // check if a <= b <= c <= d
+  for (let i = 0; i < numbers.length; i++) {
+    let next = numbers[i + 1];
+    if (numbers[i] <= next) {
+      isMoreOrUequal++;
+    }
+  }
+
+  // if a <= b <= c <= d then replace each number by its largest number
+  if (isMoreOrUequal === numbers.length) {
+    isMoreOrlessOrEqual = true;
+    let maxNum = Math.max(...numbers);
+    for (let i = 0; i < numbers.length; i++) {
+      numbers[i] = maxNum;
+    }
+    return numbers;
+  }
+  // check if a > b > c > d
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let next = numbers[i + 1];
+    if (numbers[i] > next) {
+      isMore++;
+    }
+  }
+  // if a > b > c > d then numbers should not be changed
+  if (isMore === numbers.length) {
+    isMoreOrlessOrEqual = true;
+    return numbers;
+  }
+
+  if (!isMoreOrlessOrEqual) return numbers.map((num) => num * 2);
+}
+
+replaceSquare();
+
+// 46. . The real numbers x, y are given. If x and y are negative, then replace each value with its module;
+// if only one of them is negative, then both values
+// are increased by 0.5; if both values are non-negative and
+// none of them belongs to the segment [0.5, 2.0], then both
+// values are reduced by 10 times; in other cases, x and y
+// are left unchanged.
+
+function changeOrToTen() {
+  // [x,y];
+  let numbers = [3, 4];
+
+  if (numbers.every((num) => num < 0)) {
+    return numbers.map((num) => Math.abs(num));
+  } else if (numbers.some((num) => num < 0)) {
+    return numbers.map((num) => num * 0.5);
+  } else if (numbers.every((num) => num > 0 && !(num > 0.5 && num < 2.0))) {
+    return numbers.map((num) => num * 10);
+  } else {
+    return numbers;
+  }
+}
+
+changeOrToTen();
+
+// 47. Given the real positive numbers x, y, z.
+// a) Find out if there is a triangle with
+// side lengths x, y, z. 
+// If a triangle exists, then the answer is whether it is acute—angled.
+
+function isTriangle(x,y,z){
+   if(x + y <= z || x + z <= y || y + z <= x) return 'Triangle exists'
+
+   return 'No Triangle'
+}
+
+isTriangle()
